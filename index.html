@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Preço do silo
+    </title>
+    </body>
+   <h2>Calcule o Preço do Silo aqui!!!</h2> 
+
+   Altura do Silo: <input type="number" id="altura" value=""><br><br>
+   Raio do Silo: <input type="number" id="raio" value=""><br><br>
+   Volume do Silo: <input type="number" id="volume" value=""><br><br>
+   Custo dos Materiais: <input type="number" id="custo" value=""><br><br>
+
+   <button onclick="calcular_silo()">calcular</button><br>
+   <p id="resultado"></p>
+</head>
+<script>
+        function calcular_silo(){
+            var altura = document.getElementById("altura").value;
+            var raio = document.getElementById("raio").value;
+            var volume = document.getElementById("volume").value;
+            var custo = document.getElementById("custo").value;
+
+            if(altura == undefined || raio == undefined || volume == undefined || custo == undefined){
+                   alert("POR FAVOR, PREENCHA TODOS OS ESPAÇOS!!!")
+            } else if(altura >= 0 && raio >= 0 && volume >= 0 && custo >= 0){
+                preco = (2*3.14)*custo*(Math.cbrt((9*(volume*volume))/(3.14*3.14)))
+                preco = parseFloat(preco)
+                preco = preco.toFixed(2)
+            document.getElementById("resultado").innerHTML =`Um silo com : <br> Altura: ${altura} m <br> 
+            Raio: ${raio} m <br> Volume: ${volume} m³ <br> Custo dos materias: ${custo}R$ <br>--------------------------------------------<br>
+            Custara ${parseFloat(preco)}R$ para ser fabricado `;
+                
+            } else{
+                alert("SOMENTE NUMEROS POSITIVOS!!!")
+            }
+
+               
+    }
+   
+</script>
+    
+</body>
+</html>
